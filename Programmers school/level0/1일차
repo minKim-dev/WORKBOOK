@@ -1,1 +1,104 @@
+#문제1 
+정수 num1과 num2가 매개변수로 주어질 때, num1을 num2로 나눈 값에 
+1,000을 곱한 후 정수 부분을 return 하도록 soltuion 함수를 완성해주세요.
 
+#My answer
+def solution(num1, num2):
+
+    answer = num1 / num2 *1000
+
+    return int(answer)
+
+#배운 것
+#int()를 사용시 정수부분만 나타낼 수 있다.
+
+---------------------------------------------------------------
+
+#문제2
+정수 num1과 num2가 매개변수로 주어집니다. 
+두 수가 같으면 1 다르면 -1을 retrun하도록 solution 함수를 완성해주세요.
+
+#My answer
+def solution(num1, num2):
+    if num1 == num2:
+        return 1
+    elif num1 != num2: 
+        return -1
+#배운 것
+def solution(num1, num2):
+    return 1 if num1==num2 else -1
+위와 같이 작성할 수 있다. pythonic한 방법
+
+---------------------------------------------------------------
+
+#문제3
+첫 번째 분수의 분자와 분모를 뜻하는 denum1, num1, 
+두 번째 분수의 분자와 분모를 뜻하는 denum2, num2가 매개변수로 주어집니다. 
+두 분수를 더한 값을 기약 분수로 나타냈을 때 분자와 분모를 순서대로 담은 배열을 return 하도록 
+solution 함수를 완성해보세요.
+
+#My answer
+
+#num1, num2 -> 분모
+#denum1, denum2 -> 분자
+def solution(denum1, num1, denum2, num2):
+    
+    #최소 공배수 구하기
+    for i in range(max(num1, num2),(num1*num2)+1):
+        if i%num1==0 and i%num2==0:
+            lcm = i
+            break
+            
+    if num1 == num2:
+        denum_ans = denum1 + denum2
+        num_ans = num1
+        
+    elif num1 != num2:
+        denum_ans = denum1*lcm//num1 + denum2*lcm//num2
+        num_ans = lcm
+
+    #최대 공약수 구하기
+    for i in range(min(denum_ans, num_ans),0,-1):
+        if denum_ans%i ==0 and num_ans%i==0:
+            gcf = i
+            break
+        
+    answer = [denum_ans/gcf, num_ans/gcf]
+    return answer
+
+#배운 것
+
+#최소공배수를 구하는 법
+for i in range(max(num1, num2),(num1*num2)+1):
+        if i%num1==0 and i%num2==0:
+            lcm = i
+            break
+
+#최대공약수를 구하는 법
+for i in range(min(denum_ans, num_ans),0,-1):
+        if denum_ans%i ==0 and num_ans%i==0:
+            gcf = i
+            break
+아래와 같은 다른 사람의 코드를 보면 math라이브러리를 사용해 그 안의 함수를 이용해 간단하게 해결함을 알 수 있다.
+import math
+
+def solution(denum1, num1, denum2, num2):
+    denum = denum1 * num2 + denum2 * num1
+    num = num1 * num2
+    gcd = math.gcd(denum, num)
+    return [denum//gcd, num//gcd]
+
+---------------------------------------------------------------
+
+#문제4
+정수 배열 numbers가 매개변수로 주어집니다. numbers의 각 원소에 
+두배한 원소를 가진 배열을 return하도록 solution 함수를 완성해주세요.
+
+#My answer
+def solution(numbers):
+    return list(map(lambda x: 2 * x, numbers))
+
+#배운 것
+def solution(numbers):
+    return [num*2 for num in numbers]
+위와 같이 작성이 가능하다.
