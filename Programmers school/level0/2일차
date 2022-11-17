@@ -1,0 +1,38 @@
+#문제1
+정수 num1, num2가 매개변수로 주어질 때, num1를 num2로 
+나눈 나머지를 return 하도록 solution 함수를 완성해주세요.
+
+#My answer
+def solution(num1, num2):
+    return num1 % num2
+
+#배운 것
+def solution(num1, num2):
+    return divmod(num1, num2)[1]
+
+divmod(a, b)는 a를 b로 나누고 그 몫과 나머지를 튜플의 형태로 가져온다.
+무조건 divmod() 를 쓰는 것이 좋은 것은 아니다.
+가독성이나, 팀의 코드 스타일에 따라서, a//b, a%b와 같이 쓸 때가 더 좋을 수도 있고
+또한, divmod는 작은 숫자를 다룰 때는 a//b, a%b 보다 느리기 때문이다. 대신, 
+큰 숫자를 다룰 때는 전자가 후자보다 더 빠르다.
+
+---------------------------------------------------------------
+
+#문제2
+중앙값은 어떤 주어진 값들을 크기의 순서대로 정렬했을 때 가장 중앙에 위치하는 값을 의미합니다. 
+예를 들어 1, 2, 7, 10, 11의 중앙값은 7입니다. 정수 배열 array가 매개변수로 주어질 때, 
+중앙값을 return 하도록 solution 함수를 완성해보세요.
+
+#My answer
+def solution(array):
+
+    array.sort()
+    num_mid = int(len(array) // 2)
+    return array[num_mid]
+
+#배운 것
+리스트.sort() 매서드를 사용할 경우 배열을 오름차순으로 정리할 수 있다.
+참고로 리스트.sort(reverse = True) 를 사용하면 내림차순으로 정리할 수 있다. 
+자세한 건 sort() 함수에 대해서 찾아보면 될 것이다.
+
+배열의 길이를 알고싶을 때는 len(list) 를 이용한다.
