@@ -1,1 +1,39 @@
+#문제1
+머쓱이네 피자가게는 피자를 일곱 조각으로 잘라 줍니다. 피자를 나눠먹을 사람의 수 n이 주어질 때, 
+모든 사람이 피자를 한 조각 이상 먹기 위해 필요한 피자의 수를 return 하는 solution 함수를 완성해보세요.
 
+#My answer 
+def solution(n):
+    
+    if n % 7 > 0:
+        answer = n // 7 + 1
+    else:
+        answer = n // 7
+        
+    return answer
+
+#배운 것
+#다른 사람의 풀이1
+def solution(n):
+    return (n - 1) // 7 + 1
+
+나는 n이 1이 되거나 n이 7과 같은 피자의 개수와 딱 맞는 상황이 되는 상황을 생각해서 
+if 구문을 이용해서 해결했지만 이 풀이는 n에다가 1을 뺌으로서 그 문제를 해결한 것이라 할 수 있겠다. 
+
+#다른 사람의 풀이2
+import math
+
+def solution(n):
+    return math.ceil(n/7) 
+
+math라이브러리에서 math.cell()함수를 이용한 풀이다.
+math.ceil() 함수는 주어진 숫자보다 크거나 같은 숫자 중 가장 작은 숫자를 integer 로 반환한다.
+#math.cell() 사용예시
+import math
+
+math.ceil(.95);    // 1
+math.ceil(4);      // 4
+math.ceil(7.004);  // 8
+math.ceil(-0.95);  // -0
+math.ceil(-4);     // -4
+math.ceil(-7.004); // -7
