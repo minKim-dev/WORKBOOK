@@ -26,14 +26,39 @@ import math
 def solution(n):
     return math.ceil(n/7) 
 
-math라이브러리에서 math.cell()함수를 이용한 풀이다.
-math.ceil() 함수는 주어진 숫자보다 크거나 같은 숫자 중 가장 작은 숫자를 integer 로 반환한다.
-#math.cell() 사용예시
-import math
+math라이브러리에서 math.ceil()함수를 이용한 풀이다.
+math.ceil() 함수는 실수를 올림하여 정수로 반환하는 함수이다.
 
-math.ceil(.95);    // 1
-math.ceil(4);      // 4
-math.ceil(7.004);  // 8
-math.ceil(-0.95);  // -0
-math.ceil(-4);     // -4
-math.ceil(-7.004); // -7
+---------------------------------------------------------------
+
+#문제2
+머쓱이는 학교에서 키 순으로 줄을 설 때 몇 번째로 서야 하는지 궁금해졌습니다. 
+머쓱이네 반 친구들의 키가 담긴 정수 배열 array와 머쓱이의 키 height가 매개변수로 주어질 때, 
+머쓱이보다 키 큰 사람 수를 return 하도록 solution 함수를 완성해보세요.
+
+#My answer
+배열의 값이 주어진 매개변수보다 큰지 일일이 확인한 후, 그 뒤에 조건을 만족하는 배열의 요소가 있으면
+count 변수를 1씩 증가시켜 주는 방식으로 풀이를 설계했다. 
+
+def solution(array, height):
+
+    count = 0 
+    for i in array:
+        if i > height:
+            count += 1
+            
+    return count
+
+#배운 것
+#다른 사람의 풀이1
+def solution(array, height):
+    array.append(height)
+    array.sort(reverse=True)
+    return array.index(height)
+
+.append 메소드를 이용해서 배열에 height요소를 추가하고 
+그 상태로 .sort(reverse=True)를 이용해서 내림차순했다.
+그 후, .index() 메소드를 이용해 height가 배열에서 몇번째 있는지 알아냈다.
+몇번째 있는지가 곧 height보다 큰 요소의 개수가 되는 것을 이용한 것이다. 
+
+---------------------------------------------------------------
