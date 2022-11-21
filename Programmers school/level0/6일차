@@ -1,0 +1,54 @@
+#문제1
+사분면은 한 평면을 x축과 y축을 기준으로 나눈 네 부분입니다. 
+사분면은 아래와 같이 1부터 4까지 번호를매깁니다.
+
+#My answer
+단순한 조건문으로 푼 풀이
+def solution(dot):
+    
+    if dot[0] > 0 and dot[1] > 0:
+        return 1
+    elif dot[0] < 0 and dot[1] > 0:
+        return 2
+    elif dot[0] < 0 and dot[1] < 0:
+        return 3
+    else: 
+        return 4
+
+#배운 것
+#다른 사람의 풀이1
+def solution(dot):
+    a, b = 1, 0
+    if dot[0]*dot[1] > 0:
+        b = 1
+    if dot[1] < 0:
+        a = 2
+    return 2*a-b
+다른 문법을 이용하지는 않았지만 상당히 수학적인 방법
+
+#다른 사람의 풀이2
+def solution(dot):
+    quad = [(3,2),(4,1)]
+    return quad[dot[0] > 0][dot[1] > 0]
+
+불연산자를 이용한 풀이이다.
+quad = [(3,2),(4,1)]
+quad[True][True] -> 1
+quad[False][True] -> 2
+quad[False][False] -> 3
+quad[True][False] -> 4
+로 반환하는 것을 이용해서 점의 사분면을 판단한 풀이이다.
+
+#다른 사람의 풀이3
+def solution(dot):
+    x,y = dot
+    if x*y>0:
+        return 1 if x>0 else 3
+    else:
+        return 4 if x>0 else 2
+파이토닉스러운 방법
+if 중첩문을 사용한 풀이로 and를 쓰지 않고 표현할 수 있다는 점에서 
+봐둘 필요가 있다.
+
+---------------------------------------------------------------
+
