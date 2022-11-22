@@ -52,3 +52,66 @@ if 중첩문을 사용한 풀이로 and를 쓰지 않고 표현할 수 있다는
 
 ---------------------------------------------------------------
 
+#문제2
+정수 배열 numbers와 정수 num1, num2가 매개변수로 주어질 때, 
+numbers의 num1번 째 인덱스부터 num2번째 인덱스까지 자른 정수 배열을 
+return 하도록 solution 함수를 완성해보세요.
+
+#My answer
+def solution(numbers, num1, num2):
+    answer = numbers[num1:num2 + 1:]
+    return answer
+
+---------------------------------------------------------------
+
+#문제3
+문자열 my_string이 매개변수로 주어질 때, 
+대문자는 소문자로 소문자는 대문자로 변환한 문자열을 return하도록 solution 함수를 완성해주세요.
+
+#My answer
+def solution(my_string):
+    
+    answer = ''
+    
+    for n in my_string:
+        if n.islower():
+            answer += n.upper()
+            
+        elif n.isupper():
+            answer += n.lower()
+            
+    return answer
+
+#배운 것
+for n in string:
+에서 n은 string에서의 n번째 문자로 된다는 것을 착각하고 my_string[n]으로 접근함.
+이렇게 접근하기 위해서는 아래와 같이 len()을 이용해서 N = len(my_string)으로 정의하고
+for i in range(N): 로하면 된다.
+
+def solution(my_string):
+    N = len(my_string)
+    answer = ''.join([my_string[i].upper() if my_string[i].islower() else my_string[i].lower() for i in range(N)])
+    return answer
+
+---------------------------------------------------------------
+
+#문제4
+문자열 배열 strlist가 매개변수로 주어집니다. 
+strlist 각 원소의 길이를 담은 배열을 retrun하도록 solution 함수를 완성해주세요.
+
+#My answer
+def solution(strlist):
+    
+    answer = []
+    
+    for w in strlist:
+        answer.append(len(w))
+        
+    return answer
+#w -> string
+
+
+#배운 것
+def solution(strlist):
+    return [len(str) for str in strlist]
+파이토닉한 풀이.
