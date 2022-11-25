@@ -41,3 +41,42 @@ _for_ 이런 식으로 왜 쓴 건지 알고 싶음.
 
 
 ---------------------------------------------------------------
+
+#문제2
+문자열 my_string과 정수 n이 매개변수로 주어질 때, 
+my_string에 들어있는 각 문자를 n만큼 반복한 문자열을 
+return 하도록 solution 함수를 완성해보세요.
+
+#My answer
+def solution(my_string, n):
+    
+    answer = ''
+    
+    for word in my_string:
+        
+        for i in range(n):
+            answer = answer + word
+            
+    return answer
+
+문제1에서 배운 for문에서 range()함수를 사용하지 않는 실수와 
+문자열을 +로 합칠 수 있다는 것을 알고 기존에 90% 정도 해결해놓은 것을 
+완성한 풀이다.
+
+#배운 것
+#다른 사람의 풀이1
+def solution(my_string, n):
+    return ''.join(i*n for i in my_string)
+
+join()함수를 이용한 풀이
+
+#다른 사람의 풀이2
+def solution(my_string, n):
+    string = ''
+    for i in range(len(my_string)):
+        string = string + my_string[i]*n #주목!!
+    return string
+
+나와 비슷한 풀이지만 문자열에 더할 때 n만큼 곱해서 더해주는 센스!
+
+---------------------------------------------------------------
