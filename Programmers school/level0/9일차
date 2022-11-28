@@ -27,3 +27,19 @@ def solution(price):
 #배운 것
 math라이브러리를 이용하면 
 math.trunc()를 이용해서 소수점을 버리고 정수로 나타낼 수 있다.
+[소수점 버리기: https://codechacha.com/ko/python-remove-numbers-under-decimal-point/]
+
+#다른 사람의 풀이1
+def solution(price):
+    discount_rates = {500000: 0.8, 300000: 0.9, 100000: 0.95, 0: 1}
+    for discount_price, discount_rate in discount_rates.items():
+        if price >= discount_price:
+            return int(price * discount_rate)
+
+
+dictionary를 이용해서 value와 key를 가격과 할인율로 설정한 것이 참신하고 
+반복문과 조건문을 통해서 깔끔하게 해결한게 인상적이다. 
+
+---------------------------------------------------------------
+
+#문제2
